@@ -3,7 +3,9 @@ package com.agesadev.data.di
 import com.agesadev.commons.utils.Constants
 import com.agesadev.data.BuildConfig
 import com.agesadev.data.remote.ShipsApi
+import com.agesadev.data.repository.ShipsRepositoryImpl
 import com.agesadev.domain.model.Ships
+import com.agesadev.domain.repository.ShipsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -45,6 +47,12 @@ object AppModule {
     @Singleton
     fun provideShipsApi(retrofit: Retrofit): ShipsApi {
         return retrofit.create(ShipsApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providesShipsRepository(shipsApi: ShipsApi): ShipsRepository {
+        return ShipsRepositoryImpl(shipsApi)
     }
 
 }
