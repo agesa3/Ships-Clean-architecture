@@ -21,9 +21,9 @@ class ShipsRepositoryImpl @Inject constructor(
             }
             emit(Resource.Success(theShips))
         } catch (e: Exception) {
-            emit(Resource.Error("An Error Occurred"))
+            emit(Resource.Error(e.localizedMessage ?: "An error occured"))
         } catch (e: Exception) {
-            emit(Resource.Error("Opps!! Failed.PLease Retry"))
+            emit(Resource.Error(e.localizedMessage ?: "Opps!! Failed.PLease Retry"))
         }
 
     }
