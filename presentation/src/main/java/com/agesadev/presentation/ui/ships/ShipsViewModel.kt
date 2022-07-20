@@ -5,10 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.agesadev.commons.utils.Resource
 import com.agesadev.domain.usecases.GetShipsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,7 +24,7 @@ class ShipsViewModel @Inject constructor(
 
     private fun getShips() {
         viewModelScope.launch {
-            getShipsUseCase().onEach { result ->
+            getShipsUseCase().collectLatest { result ->
                 when (result) {
                     is Resource.Success -> {
                         _ships.value = ShipsState(data = result.data ?: emptyList())
@@ -41,7 +38,7 @@ class ShipsViewModel @Inject constructor(
                     }
                 }
 
-            }.launchIn(viewModelScope)
+            }
         }
     }
 }
