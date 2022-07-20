@@ -65,7 +65,7 @@ jobs:
 
   generate-apk:
     name: ⚙️Generate APK
-    needs: [build, lint-check, unit-tests]
+#    needs: [build, lint-check, unit-tests]
     runs-on: ubuntu-latest
     steps:
 
