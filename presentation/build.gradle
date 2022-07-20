@@ -30,6 +30,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -46,6 +50,7 @@ dependencies {
 
     implementation project(':data')
     implementation project(':domain')
+    implementation project(':commons')
 
     //dagger hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"

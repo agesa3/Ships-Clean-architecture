@@ -14,7 +14,7 @@ plugins {
 }
 
 ext {
-    compileSdkVersion = 31
+    compileSdkVersion = 32
     minSdkVersion = 23
     targetSdkVersion = 30
     room = "2.4.0-rc01"
