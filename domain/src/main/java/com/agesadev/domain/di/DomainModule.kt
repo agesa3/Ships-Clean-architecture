@@ -10,10 +10,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ShipRepositoryModule {
+object DomainModule {
 
-//    @Provides
-//    @Singleton
-//    fun providesShipsUseCase(shipsRepository: ShipsRepository) = GetShipsUseCase(shipsRepository)
+    @Provides
+    @Singleton
+    fun providesShipsUseCase(shipsRepository: ShipsRepository) = GetShipsUseCase(shipsRepository)
 
 }

@@ -1,10 +1,13 @@
 package com.agesadev.data.remote.model
 
+import com.google.gson.annotations.SerializedName
+
 data class ShipsDto(
+
     val abs: Int,
     val active: Boolean,
     val attempted_landings: Any,
-    val `class`: Int,
+//    val `class`: Int,
     val course_deg: Any,
     val home_port: String,
     val image: String,

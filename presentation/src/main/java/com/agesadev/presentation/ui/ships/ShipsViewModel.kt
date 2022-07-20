@@ -30,10 +30,11 @@ class ShipsViewModel @Inject constructor(
             getShipsUseCase().onEach { result ->
                 when (result) {
                     is Resource.Success -> {
-                        _ships.value = ShipsState(ships = result.data ?: emptyList())
+                        _ships.value = ShipsState(data = result.data ?: emptyList())
                     }
                     is Resource.Error -> {
-                        _ships.value = ShipsState(error = "Failed To Load")
+                        _ships.value = ShipsState(error = result.message ?: "Error getting ships")
+
                     }
                     is Resource.Loading -> {
                         _ships.value = ShipsState(isLoading = true)
