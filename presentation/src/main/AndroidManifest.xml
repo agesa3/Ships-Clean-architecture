@@ -2,19 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.agesadev.presentation">
 
-    <application>
-        <activity
-            android:name="com.agesadev.presentation.ui.ShipsMainActivity"
-            android:exported="true"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.ShipsModular"
-            >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--    <application>-->
+<!--        <activity-->
+<!--            android:name="com.agesadev.presentation.ui.ShipsMainActivity"-->
+<!--            android:exported="true"-->
+<!--            android:label="@string/title_activity_main"-->
+<!--            android:theme="@style/Theme.ShipsModular"-->
+<!--            >-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--    </application>-->
 
 </manifest>
