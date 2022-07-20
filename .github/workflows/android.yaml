@@ -28,22 +28,22 @@ jobs:
       - name: Build with gradle
         run: ./gradlew build --stacktrace
 
-  lint-check:
-    name: 🔍 Linting
-    runs-on: ubuntu-latest
-    steps:
-
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Lint check
-        run: ./gradlew lint # Execute gradle script to perform lint check
-
-      - name: Generate lint report
-        uses: actions/upload-artifact@v2 # Uses upload-artifact@v2 action to upload lint report artifact
-        with: # Define extra parameters
-          name: lint_report.html # Name of the artifact to be uploaded
-          path: app/build/reports/lint-results-debug.html # Specifies the path where the artifact to be uploaded is located
+#  lint-check:
+#    name: 🔍 Linting
+#    runs-on: ubuntu-latest
+#    steps:
+#
+#      - name: Checkout code
+#        uses: actions/checkout@v3
+#
+#      - name: Lint check
+#        run: ./gradlew lint # Execute gradle script to perform lint check
+#
+#      - name: Generate lint report
+#        uses: actions/upload-artifact@v2 # Uses upload-artifact@v2 action to upload lint report artifact
+#        with: # Define extra parameters
+#          name: lint_report.html # Name of the artifact to be uploaded
+#          path: app/build/reports/lint-results-debug.html # Specifies the path where the artifact to be uploaded is located
 
   unit-tests:
     name: 🧪 Run Unit Tests
