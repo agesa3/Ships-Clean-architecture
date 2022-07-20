@@ -47,7 +47,7 @@ jobs:
 
   unit-tests:
     name: 🧪 Run Unit Tests
-    needs: [ lint-check ]
+#    needs: [ lint-check ]
     runs-on: ubuntu-latest
     steps:
 
