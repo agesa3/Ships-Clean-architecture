@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="textBlack900" format="reference"/>
+    <attr name="textBlack700" format="reference"/>
+    <attr name="textBlack500" format="reference"/>
+    <attr name="textBlack300" format="reference"/>
+</resources>

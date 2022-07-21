@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19114583333333332" />
+        <entry key="presentation/src/main/res/drawable/ic_baseline_bar_chart_24.xml" value="0.1" />
         <entry key="presentation/src/main/res/layout/activity_ships_main.xml" value="0.3703125" />
         <entry key="presentation/src/main/res/layout/fragment_ships.xml" value="0.16666666666666666" />
+        <entry key="presentation/src/main/res/layout/single_ship_item.xml" value="0.33" />
       </map>
     </option>
   </component>
