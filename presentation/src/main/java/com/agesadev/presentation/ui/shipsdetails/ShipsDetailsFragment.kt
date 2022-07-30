@@ -36,10 +36,6 @@ class ShipsDetailsFragment : Fragment() {
         displayShipDetails()
     }
 
-    private fun getShipDataFromBundle() {
-
-
-    }
 
     private fun displayShipDetails() {
         binding?.apply {
