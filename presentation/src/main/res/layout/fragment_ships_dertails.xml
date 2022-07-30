@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Ship Name"
+                    android:text="@string/ship_name"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
@@ -77,7 +77,7 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
                     android:fontFamily="@font/poppins_regular"
-                    android:text="Scroll to view more"
+                    android:text="@string/scroll_to_view_more"
                     android:textColor="@color/black"
                     android:textSize="@dimen/font_50"
                     android:textStyle="bold" />
@@ -97,7 +97,7 @@
                 android:layout_below="@id/shipTitleHolder"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Details"
+                android:text="@string/details"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
@@ -134,7 +134,7 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:contentDescription="Details Image"
+                                android:contentDescription="@string/details_image"
                                 android:src="@drawable/ship_id"
                                 app:tint="?attr/colorPrimaryVariant" />
 
@@ -144,7 +144,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Ship Id"
+                                android:text="@string/ship_id"
                                 android:textSize="@dimen/font_50"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -170,7 +170,7 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:contentDescription="Details Image"
+                                android:contentDescription="@string/details_image"
                                 android:src="@drawable/ship_model"
                                 app:tint="?attr/colorPrimaryVariant" />
 
@@ -180,7 +180,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Ship Model"
+                                android:text="@string/ship_model"
                                 android:textSize="@dimen/font_50"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -206,7 +206,7 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:contentDescription="Details Image"
+                                android:contentDescription="@string/details_image"
                                 android:src="@drawable/ship_type"
                                 app:tint="?attr/colorPrimaryVariant" />
 
@@ -216,7 +216,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Ship Type"
+                                android:text="@string/ship_type"
                                 android:textSize="@dimen/font_50"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -242,7 +242,7 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:contentDescription="Details Image"
+                                android:contentDescription="@string/details_image_det"
                                 android:src="@drawable/ship_weight"
                                 app:tint="?attr/colorPrimaryVariant" />
 
@@ -252,7 +252,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:fontFamily="@font/poppins_regular"
-                                android:text="Ship Weight"
+                                android:text="@string/ship_weight"
                                 android:textSize="@dimen/font_50"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -278,7 +278,7 @@
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:contentDescription="Details Image"
+                                android:contentDescription="@string/details_image"
                                 android:src="@drawable/ship_speed"
                                 app:tint="?attr/colorPrimaryVariant" />
 
@@ -306,7 +306,7 @@
                 android:layout_below="@id/horizontalScrollView"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Summary"
+                android:text="@string/summary"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/black"
@@ -322,7 +322,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
-                android:text="The American Ship is a ship magnificent of its true stature jhdfsdbdshfishdf"
+                android:text="@string/ship_summary"
                 android:textAlignment="textStart"
                 android:textSize="@dimen/font_50"
                 android:textStyle="bold" />
@@ -336,7 +336,7 @@
                 android:fontFamily="@font/poppins_regular"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
-                android:text="Data Fetched from : spacex public API"
+                android:text="@string/data_fetched_from_spacex_public_api"
                 android:textAlignment="center"
                 android:textSize="@dimen/font_50"
                 android:textStyle="bold" />
