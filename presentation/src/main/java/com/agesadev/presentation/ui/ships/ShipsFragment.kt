@@ -17,6 +17,7 @@ import com.agesadev.domain.model.Ships
 import com.agesadev.presentation.R
 import com.agesadev.presentation.databinding.FragmentShipsBinding
 import com.agesadev.presentation.ui.shipsdetails.ShipsDetailsFragment
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -58,10 +59,7 @@ class ShipsFragment : Fragment(), ItemOnClick {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
     }
-
 
     private fun getAndObserveShips() {
         lifecycleScope.launch {
@@ -69,29 +67,42 @@ class ShipsFragment : Fragment(), ItemOnClick {
                 shipsViewModel.ships.collectLatest { state ->
                     when {
                         state.data.isNotEmpty() -> {
-                            Log.d("Wow", "getAndObserveTips:  ${state.data}")
                             shipsAdapter.submitList(state.data)
-//                            hideProgressBar()
+                            hideProgressBar()
 
                         }
                         state.isLoading -> {
-//                            showProgressBar()
-                            Log.d("Wow", "Loading .....")
+                            showProgressBar()
                         }
                         else -> {
-//                            showError(state.error)
-                            Log.d("Wow", "Error .....${state.error}")
+                            hideProgressBar()
+//                            show snackbar with retry button
+                            Snackbar.make(
+                                binding?.root!!,
+                                "Error loading ships",
+                                Snackbar.LENGTH_LONG
+                            ).setAction("Retry") {
+                                doRefresh()
+                            }.show()
                         }
-//                        state.error -> {
-////                            hideProgressBar()
-////                            showSnackBar()
-////                            showNetworkFailImage()
-//                        }
                     }
 
                 }
             }
         }
+    }
+
+    private fun doRefresh() {
+        shipsViewModel.refresh()
+        getAndObserveShips()
+    }
+
+    private fun hideProgressBar() {
+        binding?.progressBar?.visibility = View.GONE
+    }
+
+    private fun showProgressBar() {
+        binding?.progressBar?.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
@@ -103,5 +114,6 @@ class ShipsFragment : Fragment(), ItemOnClick {
         val actions = ShipsFragmentDirections.actionShipsFragmentToShipsDetailsFragment(ship)
         findNavController().navigate(actions)
     }
+
 }
 

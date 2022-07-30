@@ -41,4 +41,10 @@ class ShipsViewModel @Inject constructor(
             }
         }
     }
+
+    //clear viewmodel state and perfomr refresh of fetching data
+     fun refresh() {
+        _ships.value = ShipsState()
+        getShips()
+    }
 }
