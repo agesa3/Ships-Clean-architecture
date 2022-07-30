@@ -1,19 +1,16 @@
 package com.agesadev.presentation.ui.shipsdetails
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import com.agesadev.domain.model.Ships
 import com.agesadev.presentation.R
 import com.agesadev.presentation.databinding.FragmentShipsDertailsBinding
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
 
 class ShipsDetailsFragment : Fragment() {
 
@@ -27,7 +24,6 @@ class ShipsDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentShipsDertailsBinding.inflate(inflater, container, false)
-
         return binding?.root
     }
 
