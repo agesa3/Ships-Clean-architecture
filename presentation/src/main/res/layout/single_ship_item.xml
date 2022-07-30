@@ -1,88 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/singleHomeCard"
     android:layout_width="match_parent"
-    android:layout_height="120dp"
-    android:layout_marginStart="10dp"
+    android:layout_height="100dp"
+    android:layout_marginStart="8dp"
     android:layout_marginTop="5dp"
-    android:layout_marginEnd="10dp">
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="3dp"
+    android:elevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/shipImage"
+            android:layout_width="130dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ship_holder" />
+
+        <ImageView
+            android:id="@+id/activeStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_star_24" />
+
+        <TextView
+            android:id="@+id/shipName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="American Ship"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_100"
+            app:layout_constraintBottom_toBottomOf="@+id/shipImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/shipImage"
+            app:layout_constraintTop_toTopOf="@+id/shipImage" />
+
+        <TextView
+            android:id="@+id/yearBuilt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Year Built"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_50"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/shipName"
+            app:layout_constraintTop_toBottomOf="@+id/shipName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
 
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <!--    <com.google.android.material.card.MaterialCardView-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="120dp"-->
+    <!--        android:elevation="10dp"-->
+    <!--        app:cardCornerRadius="10dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent">-->
 
-            <ImageView
-                android:id="@+id/shipImage"
-                android:layout_width="88dp"
-                android:layout_height="0dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_undraw_accept_tasks_re_09mv" />
+    <!--            <ImageView-->
+    <!--                android:background="@drawable/image_bg"-->
+    <!--                android:id="@+id/shipImage"-->
+    <!--                android:layout_width="88dp"-->
+    <!--                android:scaleType="centerCrop"-->
+    <!--                android:layout_height="0dp"-->
+    <!--                android:layout_marginStart="16dp"-->
+    <!--                android:layout_marginTop="16dp"-->
+    <!--                android:layout_marginBottom="16dp"-->
+    <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:srcCompat="@drawable/ic_undraw_accept_tasks_re_09mv" />-->
 
-            <TextView
-                android:id="@+id/shipName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="American Ship"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_100"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/shipImage"
-                app:layout_constraintTop_toTopOf="@+id/shipImage" />
+    <!--            <TextView-->
+    <!--                android:id="@+id/shipName"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginStart="8dp"-->
+    <!--                android:fontFamily="@font/poppins_regular"-->
+    <!--                android:text="American Ship"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                android:textSize="@dimen/font_100"-->
+    <!--                android:textStyle="bold"-->
+    <!--                app:layout_constraintStart_toEndOf="@+id/shipImage"-->
+    <!--                app:layout_constraintTop_toTopOf="@+id/shipImage" />-->
 
-            <TextView
-                android:id="@+id/shipTypeText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Cargo"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_50"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/shipName"
-                app:layout_constraintTop_toBottomOf="@+id/shipName" />
+    <!--            <TextView-->
+    <!--                android:id="@+id/shipTypeText"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="16dp"-->
+    <!--                android:fontFamily="@font/poppins_regular"-->
+    <!--                android:text="Cargo"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                android:textSize="@dimen/font_50"-->
+    <!--                android:textStyle="bold"-->
+    <!--                app:layout_constraintStart_toStartOf="@+id/shipName"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/shipName" />-->
 
-            <TextView
-                android:id="@+id/shipStatusText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/poppins_regular"
-                android:text="Stopped"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_50"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/shipTypeText"
-                app:layout_constraintTop_toBottomOf="@+id/shipTypeText" />
+    <!--            <TextView-->
+    <!--                android:id="@+id/shipStatusText"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="10dp"-->
+    <!--                android:fontFamily="@font/poppins_regular"-->
+    <!--                android:text="Stopped"-->
+    <!--                android:textColor="@color/black"-->
+    <!--                android:textSize="@dimen/font_50"-->
+    <!--                android:textStyle="bold"-->
+    <!--                app:layout_constraintStart_toStartOf="@+id/shipTypeText"-->
+    <!--                app:layout_constraintTop_toBottomOf="@+id/shipTypeText" />-->
 
-            <ImageView
-                android:id="@+id/activeStar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_baseline_star_24" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--            <ImageView-->
+    <!--                android:id="@+id/activeStar"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="16dp"-->
+    <!--                android:layout_marginEnd="16dp"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintTop_toTopOf="parent"-->
+    <!--                app:srcCompat="@drawable/ic_baseline_star_24" />-->
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--    </com.google.android.material.card.MaterialCardView>-->

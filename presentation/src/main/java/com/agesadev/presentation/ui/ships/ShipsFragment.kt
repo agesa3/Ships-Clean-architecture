@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.agesadev.domain.model.Ships
 import com.agesadev.presentation.R
 import com.agesadev.presentation.databinding.FragmentShipsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,12 +20,12 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ShipsFragment : Fragment() {
+class ShipsFragment : Fragment(), ItemOnClick {
 
     private var _binding: FragmentShipsBinding? = null
     private val binding get() = _binding
 
-
+    private lateinit var shipsAdapter: ShipsAdapter
     private val shipsViewModel: ShipsViewModel by viewModels()
 
     override fun onCreateView(
@@ -36,12 +38,22 @@ class ShipsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        getAndObserveShips()
+        setUpRecyclerView()
+        getAndObserveShips()
+    }
+
+    private fun setUpRecyclerView() {
+        shipsAdapter = ShipsAdapter(this)
+        binding?.shipsRecylerView?.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = shipsAdapter
+        }
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        getAndObserveShips()
+
 
     }
 
@@ -53,7 +65,7 @@ class ShipsFragment : Fragment() {
                     when {
                         state.data.isNotEmpty() -> {
                             Log.d("Wow", "getAndObserveTips:  ${state.data}")
-//                            homeTipsAdapter.submitList(state.data)
+                            shipsAdapter.submitList(state.data)
 //                            hideProgressBar()
 
                         }
@@ -77,9 +89,12 @@ class ShipsFragment : Fragment() {
         }
     }
 
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(ship: Ships) {
+        Log.d("HOme", "onItemClick: I was clicked")
     }
 }
