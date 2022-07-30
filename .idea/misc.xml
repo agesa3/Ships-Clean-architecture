@@ -3,9 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_ship.xml" value="0.3395" />
+        <entry key="app/src/main/res/drawable/boat.xml" value="0.323" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19114583333333332" />
-        <entry key="presentation/src/main/res/layout/activity_ships_main.xml" value="0.3703125" />
-        <entry key="presentation/src/main/res/layout/fragment_ships.xml" value="0.16666666666666666" />
+        <entry key="presentation/src/main/res/drawable/boat.xml" value="0.107" />
+        <entry key="presentation/src/main/res/drawable/ic_baseline_bar_chart_24.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable/ic_baseline_star_24.xml" value="0.203" />
+        <entry key="presentation/src/main/res/drawable/ic_baseline_star_green.xml" value="0.1" />
+        <entry key="presentation/src/main/res/drawable/ic_launcher_ship.xml" value="0.25" />
+        <entry key="presentation/src/main/res/drawable/image_bg.xml" value="0.2145" />
+        <entry key="presentation/src/main/res/drawable/pill_btn.xml" value="0.1" />
+        <entry key="presentation/src/main/res/layout/activity_ships_main.xml" value="0.33" />
+        <entry key="presentation/src/main/res/layout/fragment_ships.xml" value="0.5" />
+        <entry key="presentation/src/main/res/layout/fragment_ships_dertails.xml" value="0.17002881844380405" />
+        <entry key="presentation/src/main/res/layout/single_ship_item.xml" value="0.5" />
       </map>
     </option>
   </component>

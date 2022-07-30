@@ -57,7 +57,7 @@ dependencies {
     implementation project(':presentation')
     implementation project(':commons')
 
-
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
     implementation "com.squareup.okhttp3:mockwebserver:$okhttpVersion"
 
     //dagger hilt

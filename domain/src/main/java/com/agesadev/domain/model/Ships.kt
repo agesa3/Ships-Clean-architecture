@@ -1,5 +1,9 @@
 package com.agesadev.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Ships(
     val active: Boolean?,
     val home_port: String?,
@@ -13,4 +17,4 @@ data class Ships(
     val newsUrl: String?,
     val weight_kg: Int?,
     val year_built: Int?
-)
+) : Parcelable

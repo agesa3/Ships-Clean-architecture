@@ -1,3 +1,15 @@
 <resources>
     <string name="title_activity_main">MainActivity</string>
+    <string name="ship_summary">The American Ship is a ship magnificent of its true stature.Check it out.</string>
+    <string name="data_fetched_from_spacex_public_api">Data Fetched from : Spacex Public API</string>
+    <string name="summary">Summary</string>
+    <string name="details_image">Details Image</string>
+    <string name="ship_weight">Ship Weight</string>
+    <string name="details_image_det">Details Image</string>
+    <string name="ship_type">Ship Type</string>
+    <string name="ship_model">Ship Model</string>
+    <string name="ship_id">Ship Id</string>
+    <string name="details">Details</string>
+    <string name="scroll_to_view_more">Scroll to view more</string>
+    <string name="ship_name">Ship Name</string>
 </resources>

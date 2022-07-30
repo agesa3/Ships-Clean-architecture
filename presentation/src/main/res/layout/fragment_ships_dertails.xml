@@ -1,13 +1,348 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.shipsdetails.ShipsDetailsFragment">
+    android:background="@drawable/top_rounded_bottom_sheet"
+    android:padding="10dp">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Ship Image-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/descImageHolder"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="?attr/colorOnPrimary"
+                android:padding="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:id="@+id/shipDescImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ship_holder" />
+
+            </androidx.cardview.widget.CardView>
+
+            <RelativeLayout
+                android:id="@+id/shipTitleHolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/descImageHolder"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/pill_btn"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/bottomTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/ship_name"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_200"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/scrollToViewMore"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignTop="@id/shipDetailsSubheading"
+                android:layout_toEndOf="@id/shipDetailsSubheading"
+                android:gravity="center_vertical|end"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/scrollToViewMoreText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/scroll_to_view_more"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_50"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="Details Image"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                    app:tint="?attr/colorPrimaryVariant" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/shipDetailsSubheading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shipTitleHolder"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/details"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_100"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shipDetailsSubheading"
+                android:layout_marginTop="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <!--Ship ID CardView-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/shipIDCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="10dp"
+                        app:cardBackgroundColor="?attr/colorOnPrimary"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:contentDescription="@string/details_image"
+                                android:src="@drawable/ship_id"
+                                app:tint="?attr/colorPrimaryVariant" />
+
+                            <TextView
+                                android:id="@+id/shipDetailsID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="@string/ship_id"
+                                android:textSize="@dimen/font_50"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!--Ship Model CardView-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/shipModelCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="5dp"
+                        app:cardBackgroundColor="?attr/colorOnPrimary"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:contentDescription="@string/details_image"
+                                android:src="@drawable/ship_model"
+                                app:tint="?attr/colorPrimaryVariant" />
+
+                            <TextView
+                                android:id="@+id/shipDetailsModel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="@string/ship_model"
+                                android:textSize="@dimen/font_50"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!--Ship Type CardView-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/shipTypeCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="5dp"
+                        app:cardBackgroundColor="?attr/colorOnPrimary"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:contentDescription="@string/details_image"
+                                android:src="@drawable/ship_type"
+                                app:tint="?attr/colorPrimaryVariant" />
+
+                            <TextView
+                                android:id="@+id/shipDetailsType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="@string/ship_type"
+                                android:textSize="@dimen/font_50"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!--Ship Weight CardView-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/shipWeightCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="5dp"
+                        app:cardBackgroundColor="?attr/colorOnPrimary"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:contentDescription="@string/details_image_det"
+                                android:src="@drawable/ship_weight"
+                                app:tint="?attr/colorPrimaryVariant" />
+
+                            <TextView
+                                android:id="@+id/shipDetailsWeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="@string/ship_weight"
+                                android:textSize="@dimen/font_50"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!--Ship Speed CardView-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/shipSpeedCard"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="5dp"
+                        app:cardBackgroundColor="?attr/colorOnPrimary"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:contentDescription="@string/details_image"
+                                android:src="@drawable/ship_speed"
+                                app:tint="?attr/colorPrimaryVariant" />
+
+                            <TextView
+                                android:id="@+id/shipDetailsSpeed"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/poppins_regular"
+                                android:text="Ship Speed"
+                                android:textSize="@dimen/font_50"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/shipSummaryHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/horizontalScrollView"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/summary"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_100"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/shipSummaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shipSummaryHeading"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/ship_summary"
+                android:textAlignment="textStart"
+                android:textSize="@dimen/font_50"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/shipAPIRef"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shipSummaryText"
+                android:layout_marginTop="70dp"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="@string/data_fetched_from_spacex_public_api"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_50"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

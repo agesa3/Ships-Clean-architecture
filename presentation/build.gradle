@@ -7,11 +7,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk rootProject.compileSdkVersion
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        minSdk 21
-        targetSdk 32
+        minSdk rootProject.minSdkVersion
+        targetSdk rootProject.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -74,9 +75,7 @@ dependencies {
 
     implementation "androidx.activity:activity-ktx:$activityKtxVersion"
 
-    //pagination
-    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation 'androidx.core:core-splashscreen:1.0.0'
 
     //lifecycle
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
