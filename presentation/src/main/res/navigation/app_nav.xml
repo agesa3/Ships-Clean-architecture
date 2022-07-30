@@ -18,5 +18,11 @@
         android:id="@+id/shipsDetailsFragment"
         android:name="com.agesadev.presentation.ui.shipsdetails.ShipsDetailsFragment"
         android:label="fragment_ships_dertails"
-        tools:layout="@layout/fragment_ships_dertails" />
+        tools:layout="@layout/fragment_ships_dertails" >
+        <argument
+            android:name="shipModel"
+            app:argType="com.agesadev.domain.model.Ships"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>

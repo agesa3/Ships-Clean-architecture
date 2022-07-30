@@ -11,10 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.agesadev.domain.model.Ships
 import com.agesadev.presentation.R
 import com.agesadev.presentation.databinding.FragmentShipsBinding
+import com.agesadev.presentation.ui.shipsdetails.ShipsDetailsFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -24,6 +26,9 @@ class ShipsFragment : Fragment(), ItemOnClick {
 
     private var _binding: FragmentShipsBinding? = null
     private val binding get() = _binding
+
+    private val modalBottomSheet = ShipsDetailsFragment()
+
 
     private lateinit var shipsAdapter: ShipsAdapter
     private val shipsViewModel: ShipsViewModel by viewModels()
@@ -95,6 +100,8 @@ class ShipsFragment : Fragment(), ItemOnClick {
     }
 
     override fun onItemClick(ship: Ships) {
-        Log.d("HOme", "onItemClick: I was clicked")
+        val actions = ShipsFragmentDirections.actionShipsFragmentToShipsDetailsFragment(ship)
+        findNavController().navigate(actions)
     }
 }
+
