@@ -7,26 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.agesadev.presentation.R
+import com.agesadev.presentation.databinding.FragmentShipsDertailsBinding
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class ShipsDetailsFragment : Fragment() {
+class ShipsDetailsFragment : BottomSheetDialogFragment() {
 
-    companion object {
-        fun newInstance() = ShipsDetailsFragment()
-    }
 
     private lateinit var viewModel: ShipsDetailsViewModel
+    private var _binding: FragmentShipsDertailsBinding? = null
+    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_ships_dertails, container, false)
+        _binding = FragmentShipsDertailsBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ShipsDetailsViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProvider(this)[ShipsDetailsViewModel::class.java]
+
     }
 
 }

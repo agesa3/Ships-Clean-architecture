@@ -19,7 +19,7 @@
         <activity
             android:name="com.agesadev.presentation.ui.ShipsMainActivity"
             android:exported="true"
-            android:theme="@style/Theme.ShipsModularApp">
+            android:theme="@style/Theme.ShipsModular">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
