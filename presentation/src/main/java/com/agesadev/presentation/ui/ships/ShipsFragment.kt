@@ -54,36 +54,34 @@ class ShipsFragment : Fragment(), ItemOnClick {
             layoutManager = LinearLayoutManager(context)
             adapter = shipsAdapter
         }
+        binding?.retryButton?.setOnClickListener {
+            doRefresh()
+        }
 
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 
     private fun getAndObserveShips() {
-        lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 shipsViewModel.ships.collectLatest { state ->
                     when {
                         state.data.isNotEmpty() -> {
                             shipsAdapter.submitList(state.data)
+                            Log.d("Home", "getAndObserveShips: Ships are ${state.data}")
                             hideProgressBar()
 
                         }
                         state.isLoading -> {
                             showProgressBar()
+                            Log.d("Home", "We are Loading")
+                        }
+                        state.error != null -> {
+                            hideProgressBar()
+                            showNetworkErrorImage()
+                            binding?.root?.let { showSnackBar(it) }
                         }
                         else -> {
-                            hideProgressBar()
-//                            show snackbar with retry button
-                            Snackbar.make(
-                                binding?.root!!,
-                                "Error loading ships",
-                                Snackbar.LENGTH_LONG
-                            ).setAction("Retry") {
-                                doRefresh()
-                            }.show()
+
                         }
                     }
 
@@ -92,13 +90,36 @@ class ShipsFragment : Fragment(), ItemOnClick {
         }
     }
 
+    private fun showSnackBar(view: View) {
+        Snackbar.make(
+            view,
+            "Error loading ships",
+            Snackbar.LENGTH_LONG
+        )
+            .setAction("Retry") {
+                doRefresh()
+            }.show()
+    }
+
     private fun doRefresh() {
         shipsViewModel.refresh()
+        hideProgressBar()
+        hideNetWorkErrorImage()
         getAndObserveShips()
     }
 
     private fun hideProgressBar() {
         binding?.progressBar?.visibility = View.GONE
+    }
+
+    private fun showNetworkErrorImage() {
+        binding?.networkError?.visibility = View.VISIBLE
+        binding?.retryButton?.visibility = View.VISIBLE
+    }
+
+    private fun hideNetWorkErrorImage() {
+        binding?.networkError?.visibility = View.GONE
+        binding?.retryButton?.visibility = View.GONE
     }
 
     private fun showProgressBar() {

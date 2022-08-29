@@ -14,7 +14,7 @@
         <entry key="presentation/src/main/res/drawable/image_bg.xml" value="0.2145" />
         <entry key="presentation/src/main/res/drawable/pill_btn.xml" value="0.1" />
         <entry key="presentation/src/main/res/layout/activity_ships_main.xml" value="0.33" />
-        <entry key="presentation/src/main/res/layout/fragment_ships.xml" value="0.5" />
+        <entry key="presentation/src/main/res/layout/fragment_ships.xml" value="0.33" />
         <entry key="presentation/src/main/res/layout/fragment_ships_dertails.xml" value="0.17002881844380405" />
         <entry key="presentation/src/main/res/layout/single_ship_item.xml" value="0.5" />
       </map>
