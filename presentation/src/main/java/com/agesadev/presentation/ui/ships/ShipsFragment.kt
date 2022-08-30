@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -42,10 +44,40 @@ class ShipsFragment : Fragment(), ItemOnClick {
         return binding?.root
     }
 
+    private fun searchShip() {
+        binding?.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(searchText: String): Boolean {
+                filterShips(searchText)
+                return false
+            }
+
+        })
+    }
+
+    private fun filterShips(text: String) {
+        val filteredShips: ArrayList<Ships> = ArrayList()
+        for (ship in shipsAdapter.currentList) {
+            if (ship.ship_name?.lowercase()?.trim()?.contains(text.lowercase().trim()) == true) {
+                filteredShips.add(ship)
+            }
+        }
+        if (filteredShips.isEmpty()) {
+        } else {
+            shipsAdapter.submitList(filteredShips)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerView()
         getAndObserveShips()
+        searchShip()
+
     }
 
     private fun setUpRecyclerView() {
@@ -69,6 +101,7 @@ class ShipsFragment : Fragment(), ItemOnClick {
                             shipsAdapter.submitList(state.data)
                             Log.d("Home", "getAndObserveShips: Ships are ${state.data}")
                             hideProgressBar()
+
 
                         }
                         state.isLoading -> {
