@@ -15,7 +15,7 @@ class ShipsViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _ships = MutableStateFlow(ShipsState())
-    val ships: StateFlow<ShipsState> = _ships
+    val ships: StateFlow<ShipsState> = _ships.asStateFlow()
 
 
     init {
@@ -36,15 +36,13 @@ class ShipsViewModel @Inject constructor(
                     is Resource.Loading -> {
                         _ships.value = ShipsState(isLoading = true)
                     }
-                }
 
+                }
             }
         }
     }
 
-    //clear viewmodel state and perfomr refresh of fetching data
-     fun refresh() {
-        _ships.value = ShipsState()
+    fun refresh() {
         getShips()
     }
 }

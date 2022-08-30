@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -42,10 +44,40 @@ class ShipsFragment : Fragment(), ItemOnClick {
         return binding?.root
     }
 
+    private fun searchShip() {
+        binding?.searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            android.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(searchText: String): Boolean {
+                filterShips(searchText)
+                return false
+            }
+
+        })
+    }
+
+    private fun filterShips(text: String) {
+        val filteredShips: ArrayList<Ships> = ArrayList()
+        for (ship in shipsAdapter.currentList) {
+            if (ship.ship_name?.lowercase()?.trim()?.contains(text.lowercase().trim()) == true) {
+                filteredShips.add(ship)
+            }
+        }
+        if (filteredShips.isEmpty()) {
+        } else {
+            shipsAdapter.submitList(filteredShips)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerView()
         getAndObserveShips()
+        searchShip()
+
     }
 
     private fun setUpRecyclerView() {
@@ -54,36 +86,35 @@ class ShipsFragment : Fragment(), ItemOnClick {
             layoutManager = LinearLayoutManager(context)
             adapter = shipsAdapter
         }
+        binding?.retryButton?.setOnClickListener {
+            doRefresh()
+        }
 
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
     }
 
     private fun getAndObserveShips() {
-        lifecycleScope.launch {
-            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 shipsViewModel.ships.collectLatest { state ->
                     when {
                         state.data.isNotEmpty() -> {
                             shipsAdapter.submitList(state.data)
+                            Log.d("Home", "getAndObserveShips: Ships are ${state.data}")
                             hideProgressBar()
+
 
                         }
                         state.isLoading -> {
                             showProgressBar()
+                            Log.d("Home", "We are Loading")
+                        }
+                        state.error != null -> {
+                            hideProgressBar()
+                            showNetworkErrorImage()
+                            binding?.root?.let { showSnackBar(it) }
                         }
                         else -> {
-                            hideProgressBar()
-//                            show snackbar with retry button
-                            Snackbar.make(
-                                binding?.root!!,
-                                "Error loading ships",
-                                Snackbar.LENGTH_LONG
-                            ).setAction("Retry") {
-                                doRefresh()
-                            }.show()
+
                         }
                     }
 
@@ -92,13 +123,36 @@ class ShipsFragment : Fragment(), ItemOnClick {
         }
     }
 
+    private fun showSnackBar(view: View) {
+        Snackbar.make(
+            view,
+            "Error loading ships",
+            Snackbar.LENGTH_LONG
+        )
+            .setAction("Retry") {
+                doRefresh()
+            }.show()
+    }
+
     private fun doRefresh() {
         shipsViewModel.refresh()
+        hideProgressBar()
+        hideNetWorkErrorImage()
         getAndObserveShips()
     }
 
     private fun hideProgressBar() {
         binding?.progressBar?.visibility = View.GONE
+    }
+
+    private fun showNetworkErrorImage() {
+        binding?.networkError?.visibility = View.VISIBLE
+        binding?.retryButton?.visibility = View.VISIBLE
+    }
+
+    private fun hideNetWorkErrorImage() {
+        binding?.networkError?.visibility = View.GONE
+        binding?.retryButton?.visibility = View.GONE
     }
 
     private fun showProgressBar() {

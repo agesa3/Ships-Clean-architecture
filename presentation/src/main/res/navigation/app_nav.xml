@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/shipsFragment"
         android:name="com.agesadev.presentation.ui.ships.ShipsFragment"
-        android:label="fragment_ships"
+        android:label="Ships"
         tools:layout="@layout/fragment_ships" >
         <action
             android:id="@+id/action_shipsFragment_to_shipsDetailsFragment"
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/shipsDetailsFragment"
         android:name="com.agesadev.presentation.ui.shipsdetails.ShipsDetailsFragment"
-        android:label="fragment_ships_dertails"
+        android:label="Ship Detail"
         tools:layout="@layout/fragment_ships_dertails" >
         <argument
             android:name="shipModel"
