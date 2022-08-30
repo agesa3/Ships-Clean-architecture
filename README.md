@@ -16,7 +16,7 @@ An android app built using Kotlin that consumes [SpaceX Ships Api](https://api.s
     - [Layers](##layers)
         - [Domain](###domain)
         - [Data](###data)
-        - [Presentation](###presentation)
+        - [Presentation](##presentation)
 - [Tech Stack](#techstack)
     - [Libraries](##libraries)
 - [Helpful Resources](#helpful-resources)
@@ -87,8 +87,6 @@ Components of data layer include:
 
     -__Dto Models__: Defines POJO of network responses.
 
-    -__Entity Models__: Defines the schema of SQLite database.
-
 - __Repositories__: Responsible for exposing data to the domain layer.
 
 - __Mappers__: They perform data transformation between ```domain```, ```dto``` and ```entity``` models.
@@ -99,7 +97,7 @@ Components of data layer include:
 
 - __Data Source__:  Responsible for deciding which data source (network or cache) will be used when fetching data.
 
-### 3. Presentation.
+## 3. Presentation.
 The ```presentation``` layer contains components involved in showing information to the user. The main part of this layer are the views(activity) and viewmodels.
 
 # Tech Stack.
