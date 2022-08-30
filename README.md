@@ -22,7 +22,7 @@ An android app built using Kotlin that consumes [SpaceX Ships Api](https://api.s
 - [Helpful Resources](#helpful-resources)
 
 ## Demo
-<img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/Screenshot_20220731_020739.png" width="250"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/Screenshot_20220731_020637.png" width="250"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/Screenshot_20220731_020714.png" width="250"/> 
+<img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/home.png" width="240"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/detail.png" width="240"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/search.png" width="240"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/error.png" width="250"/> 
 
 
 ## Prerequisite.
