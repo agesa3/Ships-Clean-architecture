@@ -1,4 +1,4 @@
-# Ships
+# CodeWars
 
 An android app built using Kotlin that consumes [Codewars API](https://dev.codewars.com/#introduction) to display a lsit of challes completed by a user and also the challenge details.The leaderboard can be found [here](https://www.codewars.com/users/leaderboard).I chose one user from the leaderboard.It has been built following Clean Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as Jetpack components.
 
@@ -26,7 +26,7 @@ I have taken approach of having a Single Source of Truth such that data is fetch
 - [Helpful Resources](#helpful-resources)
 
 ## Demo
-<img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/home.png" width="240"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/detail.png" width="240"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/search.png" width="240"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/error.png" width="250"/> 
+<img src="https://github.com/agesa3/CodeWars/blob/main/demo/splash.png" width="240"/> <img src="https://github.com/agesa3/CodeWars/blob/main/demo/challengedetails.png" width="240"/> <img src="https://github.com/agesa3/Ships-Clean-architecture/blob/main/screenshots/search.png" width="240"/> <img src="https://github.com/agesa3/CodeWars/blob/main/demo/errorscreen.png" width="250"/> 
 
 
 ## Prerequisite.
