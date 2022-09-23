@@ -1,7 +1,11 @@
 # Ships
 
-An android app built using Kotlin that consumes [SpaceX Ships Api](https://api.spacexdata.com/v3/ships) to display. It has been built following Clean Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as Jetpack components.
+An android app built using Kotlin that consumes [Codewars API](https://dev.codewars.com/#introduction) to display a lsit of challes completed by a user and also the challenge details.The leaderboard can be found [here](https://www.codewars.com/users/leaderboard).I chose one user from the leaderboard.It has been built following Clean Architecture Principle, Repository Pattern, MVVM Architecture in the presentation layer as well as Jetpack components.
 
+### Approach
+Ive used a default user whose data gets fetched immediately the app launches.The app fetches the completed challenges from codewars api and the caches the data to room database.To perform caching I have used Paging3 and Remote Mediator to help in fetching and cahing the paginated data.
+
+I have taken approach of having a Single Source of Truth such that data is fetched from the api and then cached to room and only use room to forward that data to the presentation layer.When a challenge is clicked,its details are fetched from the ap[i then cached to the database before being sent to the presentation layer.
 
 
 ## Table Of Content.
